@@ -1086,7 +1086,9 @@ process MergedLibMACSCallPeak {
         -n $prefix \\
         $pileup \\
         --keep-dup all \\
-        --nomodel
+        --nomodel \\
+		--shift -100 \\
+		--extsize 200
 
     cat ${prefix}_peaks.${PEAK_TYPE} | wc -l | awk -v OFS='\t' '{ print "${name}", \$1 }' | cat $mlib_peak_count_header - > ${prefix}_peaks.count_mqc.tsv
 
@@ -1553,7 +1555,9 @@ process MergedRepMACSCallPeak {
         -n $prefix \\
         $pileup \\
         --keep-dup all \\
-        --nomodel
+        --nomodel \\
+		--shift -100 \\
+		--extsize 200
 
     cat ${prefix}_peaks.${PEAK_TYPE} | wc -l | awk -v OFS='\t' '{ print "${name}", \$1 }' | cat $mrep_peak_count_header - > ${prefix}_peaks.count_mqc.tsv
 
